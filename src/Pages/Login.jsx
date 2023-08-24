@@ -13,7 +13,6 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setUsername("")
     setPassword("")
 
     const loggedIn = await login(username, password)

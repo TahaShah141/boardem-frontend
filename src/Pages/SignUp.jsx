@@ -14,7 +14,6 @@ export default function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setUsername("")
     setPassword("")
 
     const signedup = await signup(username, password)
