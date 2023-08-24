@@ -23,7 +23,7 @@ export const useLogin = () => {
             })
         })
 
-        console.log(res.ok, res,status)
+        console.log(res.ok, res.status)
         console.log(res)
 
         const json = await res.json()
