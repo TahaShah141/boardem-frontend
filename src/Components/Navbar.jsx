@@ -1,12 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { useAuthContext } from "../Hooks/useAuthContext";
-import { useState } from "react";
 
-export default function Navbar() {
+export default function Navbar({isOpen, setOpen}) {
 
   const { user, dispatch } = useAuthContext()
-
-  const [isOpen, setOpen] = useState(false)
 
   return (
     <>
