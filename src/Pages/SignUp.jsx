@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useSignup } from '../Hooks/useSignup'
 import { useState } from 'react'
 
@@ -21,7 +21,7 @@ export default function SignUp() {
 
     const signedup = await signup(username, email, password)
 
-    if (signedup) navigate('/home')
+    if (signedup) navigate('/')
   }
 
   return (
@@ -35,6 +35,10 @@ export default function SignUp() {
           <button className='auth-button' type="submit" disabled={isLoading} >Sign Up</button>
           {error && <div className="error">{error}</div>}
       </form>
+
+      <div className='text-neutral-600'>
+        <p className='text-xs'>Already have an Account? <Link className='text-sm underline hover:text-neutral-200 text-neutral-400 font-mono' to='/login'>Login</Link></p>
+      </div>
     </div>
   )
 }

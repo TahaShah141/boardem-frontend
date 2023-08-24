@@ -27,7 +27,7 @@
 }
 
 .profile-link.active {
-    @apply text-red-500 scale-110 border border-white
+    @apply text-red-600 scale-110
 }
 
 .text-input {
