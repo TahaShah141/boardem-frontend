@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useAuthContext } from "./useAuthContext"
 
+const baseUrl = import.meta.env.VITE_BASE_URL
 
 export const useSignup = () => {
 
@@ -12,7 +13,7 @@ export const useSignup = () => {
         setLoading(true)
         setError(null)
 
-        const res = await fetch(`/api/auth/signup`, {
+        const res = await fetch(`${baseUrl}/api/auth/signup`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useAuthContext } from "./useAuthContext"
 
+const baseUrl = import.meta.env.VITE_BASE_URL
+
 export const useLogin = () => {
     
     const [error, setError] = useState(null)
@@ -11,7 +13,7 @@ export const useLogin = () => {
         setLoading(true)
         setError(null)
 
-        const res = await fetch(`/api/auth/login`, {
+        const res = await fetch(`${baseUrl}/api/auth/login`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

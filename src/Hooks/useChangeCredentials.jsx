@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useAuthContext } from "./useAuthContext"
 
+const baseUrl = import.meta.env.VITE_BASE_URL
+
 export const useChangeCredentials = () => {
 
     const { user, dispatch } = useAuthContext()
@@ -12,7 +14,7 @@ export const useChangeCredentials = () => {
         setLoading(true)
         setError(null)
 
-        const res = await fetch(`/api/user/change`, {
+        const res = await fetch(`${baseUrl}/api/user/change`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json',

@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useAuthContext } from "./useAuthContext"
 import { useAPIContext } from "./useAPIContext"
 
- 
+const baseUrl = import.meta.env.VITE_BASE_URL
 
 export const useNewMessage = () => {
 
@@ -18,7 +18,7 @@ export const useNewMessage = () => {
 
         if (!user) return
 
-        const res = await fetch(`/api/messages/new`, {
+        const res = await fetch(`${baseUrl}/api/messages/new`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

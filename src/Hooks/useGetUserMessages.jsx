@@ -2,6 +2,8 @@ import { useState } from "react"
 import { useAuthContext } from "./useAuthContext"
 import { useAPIContext } from "./useAPIContext"
 
+const baseUrl = import.meta.env.VITE_BASE_URL
+
 export const useGetUserMessages = () => {
 
     const [error, setError] = useState(null)
@@ -16,7 +18,7 @@ export const useGetUserMessages = () => {
 
         if (!user) return
 
-        const res = await fetch(`/api/user${userID ? `/${userID}` : ""}/messages`, {
+        const res = await fetch(`${baseUrl}/api/user${userID ? `/${userID}` : ""}/messages`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${user.token}` 
