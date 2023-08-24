@@ -3,29 +3,53 @@ import { useAPIContext } from "../Hooks/useAPIContext"
 import { useGetMessages } from "../Hooks/useGetMessages"
 import { MessageList } from "../Components/MessageList"
 import NewMessage from "../Components/NewMessage"
+import { useReload } from "../Hooks/useReload"
 
 export default function Home() {
 
     const { getMessages, error, isLoading } = useGetMessages()
+    const { reloadMessages, isLoading: isReloading, error: reloadError } = useReload()
+
     const [sending, setSending] = useState(false)
 
-    const { messages } = useAPIContext()
+    const { messages, dispatch } = useAPIContext()
 
     useEffect(() => {
+        dispatch({type: "CLEAR_MESSAGES"})
         getMessages()
     }, [])
     
+    const delay = 10000 //10 seconds
+    useEffect(() => {
+        if (messages.length === 0) return
+
+        const reload = setTimeout(() => {
+            const lastRequest = messages[0].createdAt
+            reloadMessages({lastRequest})
+        }, delay)
+
+        return () => {
+            clearTimeout(reload)
+        }
+    }, [messages])
+    
     return (
     <>
-    <div className="bg-neutral-800 rounded-xl border border-black">
-        <div className="group fixed bottom-0 right-0 flex items-center text-white opacity-75 hover:opacity-100">
-            <button onClick={() => setSending(true)} className="peer m-3 w-12 h-12 bg-red-500 border-4 border-black rounded-full order-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="currentColor"/></svg></button>
-            <p className="bg-red-500 py-2 px-4 font-mono rounded-lg border-4 border-black animate-popup hidden group-hover:inline-block peer-focus:inline-block">Add a New Message</p>
+    <div className="flex flex-col">
+        <div className="self-end p-3">
+            {isReloading && <p className="text-neutral-600 hover:text-neutral-400 animate-pulse">...Refreshing</p>}
+            {reloadError && <p className="error">{reloadError}</p>}
         </div>
-        {error && <p className="error">{error.message}</p>}
-        {isLoading && <p className=" text-center p-4 text-3xl text-white font-mono font-bold animate-pulse">Loading...</p>}
-        {!isLoading && <MessageList messages={messages} />}
-        {sending && <NewMessage closeMessage={() => setSending(false)}/>}
+        <div className="bg-neutral-800 rounded-xl border border-black">
+            <div className="group fixed bottom-0 right-0 flex items-center text-white opacity-75 hover:opacity-100">
+                <button onClick={() => setSending(true)} className="peer m-3 w-12 h-12 bg-red-500 border-4 border-black rounded-full order-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="currentColor"/></svg></button>
+                <p className="bg-red-500 py-2 px-4 font-mono rounded-lg border-4 border-black animate-popup hidden group-hover:inline-block peer-focus:inline-block">Add a New Message</p>
+            </div>
+            {error && <p className="error">{error.message}</p>}
+            {isLoading && <p className=" text-center p-4 text-3xl text-white font-mono font-bold animate-pulse">Loading...</p>}
+            {!isLoading && <MessageList messages={messages} />}
+            {sending && <NewMessage closeMessage={() => setSending(false)}/>}
+        </div>
     </div>
     </>)
 }
