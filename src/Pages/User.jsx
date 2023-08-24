@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuthContext } from "../Hooks/useAuthContext";
 import UserMessages from "./UserMessages";
 import NewMessage from "../Components/NewMessage"
-import ChangeCredentials from "../Components/changeCredentials";
+import ChangeCredentials from "../Components/ChangeCredentials";
 
 export default function User() {
 
