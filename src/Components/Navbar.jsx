@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import { useAuthContext } from "../Hooks/useAuthContext";
-import { useAPIContext } from "../Hooks/useAPIContext";
 
 export default function Navbar({isOpen, setOpen}) {
 
