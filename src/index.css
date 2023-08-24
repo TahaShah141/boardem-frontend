@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.auth-form {
+    @apply flex flex-col bg-primary p-8 gap-4 rounded-xl justify-center items-center w-max shadow shadow-red-400 border-8 border-neutral-900
+}
+
+.auth-button {
+    @apply bg-red-500 px-5 py-2 rounded-md text-lg font-bold text-white border-black border-4 disabled:bg-red-300 disabled:text-gray-600 hover:bg-red-600 hover:scale-105 w-full
+}
+
+.error {
+    @apply bg-red-500 border-4 border-red-800 rounded-md text-[0.75rem] w-max p-3 text-neutral-200 opacity-70 hover:opacity-100 font-mono uppercase animate-popup
+}
+
+.nav-link {
+    @apply font-mono hover:text-red-500 hover:border-b-2 border-red-500 py-1 hover:scale-105
+}
+
+.nav-link.active {
+    @apply border-b-2 border-white hover:border-red-500
+}
+
+.profile-link {
+    @apply h-12 w-12 p-1 text-neutral-300 hover:text-neutral-50 hover:scale-110 bg-black rounded-full bg-opacity-10
+}
+
+.profile-link.active {
+    @apply text-red-500 scale-110 border border-white
+}
+
+.text-input {
+    @apply h-10 p-2 rounded-md border-4 border-black font-mono outline-none
+}
+
+
+/* SCROLLBAR CHANGES */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: rgba(84, 84, 84, 0.2);
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(84, 84, 84, 0.3);
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(84, 84, 84, 0.8);
+}
