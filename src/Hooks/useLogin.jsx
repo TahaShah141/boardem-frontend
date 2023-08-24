@@ -23,7 +23,12 @@ export const useLogin = () => {
             })
         })
 
+        console.log(res.ok, res,status)
+        console.log(res)
+
         const json = await res.json()
+
+        console.log(json)
 
         if (!res.ok) {
             setLoading(false)
