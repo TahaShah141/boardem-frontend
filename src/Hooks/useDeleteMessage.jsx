@@ -2,8 +2,6 @@ import { useState } from "react"
 import { useAuthContext } from "./useAuthContext"
 import { useAPIContext } from "./useAPIContext"
 
-const baseUrl = import.meta.env.VITE_API_URL
-
 export const useDeleteMessage = () => {
 
     const [error, setError] = useState(null)
@@ -18,7 +16,7 @@ export const useDeleteMessage = () => {
 
         if (!user) return
 
-        const res = await fetch(`${baseUrl}api/messages/message/${id}`, {
+        const res = await fetch(`/api/messages/message/${id}`, {
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json',

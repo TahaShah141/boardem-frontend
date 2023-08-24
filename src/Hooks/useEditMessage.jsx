@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useAuthContext } from "./useAuthContext"
 import { useAPIContext } from "./useAPIContext"
 
+
 export const useEditMessage = () => {
 
     const [error, setError] = useState(null)
@@ -16,7 +17,7 @@ export const useEditMessage = () => {
 
         if (!user) return
 
-        const res = await fetch(`${baseUrl}api/messages/message/${id}`, {
+        const res = await fetch(`/api/messages/message/${id}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json',

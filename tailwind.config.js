@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      screens:{
+        'x-sm': '400px'
+      },
+
       backgroundColor: {
         primary: "#333333"
       },

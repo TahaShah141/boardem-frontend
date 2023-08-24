@@ -1,5 +1,4 @@
-import { createContext, useEffect, useReducer } from "react";
-import { useAuthContext } from "../Hooks/useAuthContext";
+import { createContext, useReducer } from "react";
 
 export const APIContext = createContext()
 
@@ -32,8 +31,6 @@ export const APIContextProvider = ({ children }) => {
         messages: [],
         username: null
     })
-
-    // console.log(state)
 
     return (
         <APIContext.Provider value={{ ...state, dispatch }}>
