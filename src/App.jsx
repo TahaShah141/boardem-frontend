@@ -16,6 +16,7 @@ import SignUp from './Pages/SignUp';
 import Login from './Pages/Login';
 import Home from './Pages/Home';
 import UserMessages from './Pages/UserMessages';
+import User from './Pages/User';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,7 +25,7 @@ const router = createBrowserRouter(
       <Route element={<Authenticator />} >
         <Route index element={<Home />} />
         <Route path='messages' element={<UserMessages />} />
-        <Route path='profile' element={<p>This is the profile page</p>} />
+        <Route path='profile' element={<User />} />
         <Route path='users/:id/messages' element={<UserMessages />} />
       </Route>
 

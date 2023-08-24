@@ -27,7 +27,6 @@ export const Message = ({ message, editable=false, userSpecific=false }) => {
         if (editing) error = editError
         if (deleting) error = deleteError
         setError(error)
-        console.log(error)
     }, [deleteError, editError])
 
     const resetStates = () => {
@@ -37,13 +36,11 @@ export const Message = ({ message, editable=false, userSpecific=false }) => {
     }
 
     const getMessage = (id) => {
-        console.log("message: ", id)
     }
 
     const getUser = (e, user_id) => {
         e.stopPropagation()
         if (userSpecific) return
-        console.log(user_id)
         navigate(`/users/${user_id}/messages`)
     }
 
