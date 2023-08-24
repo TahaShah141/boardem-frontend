@@ -9,17 +9,15 @@ export default function SignUp() {
   const navigate = useNavigate()
 
   const [username, setUsername] = useState("")
-  const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setUsername("")
-    setEmail("")
     setPassword("")
 
-    const signedup = await signup(username, email, password)
+    const signedup = await signup(username, password)
 
     if (signedup) navigate('/')
   }
@@ -30,7 +28,6 @@ export default function SignUp() {
       
       <form method="POST" onSubmit={handleSubmit} className="auth-form">
           <input className='text-input w-64' type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder='Username'/>
-          <input className='text-input w-64' type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email'/>
           <input className='text-input w-64' type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password'/>
           <button className='auth-button' type="submit" disabled={isLoading} >Sign Up</button>
           {error && <div className="error">{error}</div>}
