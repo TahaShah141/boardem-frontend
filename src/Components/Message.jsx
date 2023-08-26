@@ -2,8 +2,7 @@ import { useNavigate } from 'react-router-dom'
 
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { useEffect, useState } from 'react'
-import { useDeleteMessage } from '../Hooks/useDeleteMessage'
-import { useEditMessage } from '../Hooks/useEditMessage'
+import { useAPI } from '../Hooks/useAPI'
 
 export const Message = ({ message, editable=false, userSpecific=false }) => {
 
@@ -15,8 +14,8 @@ export const Message = ({ message, editable=false, userSpecific=false }) => {
     const [title, setTitle] = useState(message.title)
     const [content, setContent] = useState(message.content)
 
-    const { deleteMessage, isLoading: deleteLoading, error: deleteError } = useDeleteMessage()
-    const { editMessage, isLoading: editLoading, error: editError } = useEditMessage()
+    const { deleteMessage, isLoading: deleteLoading, error: deleteError } = useAPI()
+    const { editMessage, isLoading: editLoading, error: editError } = useAPI()
 
     const [error, setError] = useState(null)
     const [isLoading, setLoading] = useState(false)
@@ -102,7 +101,6 @@ export const Message = ({ message, editable=false, userSpecific=false }) => {
                     </>
                 )}
             </div>
-
 
             <p className="text-right text-neutral-300 italic font-mono min-[500px]:hidden text-xs x-sm:text-sm">{formatDistanceToNow(new Date(message.createdAt), { addSuffix: true })}</p>
         </div>

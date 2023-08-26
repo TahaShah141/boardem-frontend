@@ -10,10 +10,8 @@ export default function Authenticator() {
     return (
         <>
         {user ?
-        <APIContextProvider>
-        <Outlet />
-        </APIContextProvider> :
-        <Navigate to='login' />}
+        <Outlet />:
+        <Navigate to='/' />}
         </>
     )
 }

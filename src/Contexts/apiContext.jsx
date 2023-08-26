@@ -22,8 +22,8 @@ export const apiReducer = (state, action) => {
                     else return msg
                     })
             }
-        case 'SET_USERNAME':
-            return {...state, username: action.payload}
+        case 'BOARD':
+            return {...state, board: action.payload}
         
         default:
             return state
@@ -33,8 +33,10 @@ export const apiReducer = (state, action) => {
 export const APIContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(apiReducer, {
         messages: [],
-        username: null
+        board: null
     })
+
+    console.log(state.board)
 
     return (
         <APIContext.Provider value={{ ...state, dispatch }}>

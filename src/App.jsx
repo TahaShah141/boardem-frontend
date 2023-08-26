@@ -19,22 +19,22 @@ import Home from './Pages/Home';
 import UserMessages from './Pages/UserMessages';
 import User from './Pages/User';
 import Protected404 from './Pages/Protected404';
+import Test from './Components/Test';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<RootLayout />}>
-
-      <Route element={<Authenticator />} >
-        <Route index element={<Home />} />
-        <Route path='home' element={<Navigate to="./"/>} />
-        <Route path='messages' element={<UserMessages />} />
-        <Route path='profile' element={<User />} />
-        <Route path='users/:id/messages' element={<UserMessages />} />
-      </Route>
+      <Route index element={<Home />} />
 
       <Route element={<Authentication />}>
         <Route path='login' element={<Login />} />
         <Route path='signup' element={<SignUp />} />
+      </Route>
+
+      <Route element={<Authenticator />} >
+        <Route path='messages' element={<UserMessages />} />
+        <Route path='profile' element={<User />} />
+        <Route path='users/:id/messages' element={<UserMessages />} />
       </Route>
 
       <Route path="*" element={<Navigate to='/' />} />
