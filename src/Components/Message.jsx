@@ -1,12 +1,8 @@
-import { useNavigate } from 'react-router-dom'
-
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { useEffect, useState } from 'react'
 import { useAPI } from '../Hooks/useAPI'
 
-export const Message = ({ message, editable=false, userSpecific=false }) => {
-
-    const navigate = useNavigate()
+export const Message = ({ message, editable=false }) => {
 
     const [editing, setEditing] = useState(false)
     const [deleting, setDeleting] = useState(false)
@@ -32,15 +28,6 @@ export const Message = ({ message, editable=false, userSpecific=false }) => {
         setError(null)
         setEditing(false)
         setDeleting(false)
-    }
-
-    const getMessage = (id) => {
-    }
-
-    const getUser = (e, user_id) => {
-        e.stopPropagation()
-        if (userSpecific) return
-        navigate(`/users/${user_id}/messages`)
     }
 
     const cancelAction = () => {
@@ -76,14 +63,14 @@ export const Message = ({ message, editable=false, userSpecific=false }) => {
     )
 
     return (
-        <div className="group flex flex-col x-sm:gap-2 bg-primary p-3 x-sm:p-5 rounded-md text-white border-4 border-red-600 hover:border-red-500" onClick={() => getMessage(message._id)} onMouseLeave={resetStates}>
+        <div className="group flex flex-col x-sm:gap-2 bg-primary p-3 x-sm:p-5 rounded-md text-white border-4 border-red-600 hover:border-red-500 w-full" onMouseLeave={resetStates}>
             <div className='flex justify-between items-center'>
-                <h3 className="font-bold text-xl x-sm:text-2xl hover:text-red-500 hover:border-b-2 border-red-500" onClick={(e) => getUser(e, message.sender_id)}>{message.username}</h3>
+                <h3 className="font-bold text-xl x-sm:text-2xl hover:border-b-2 border-white">{message.username}</h3>
                 {!editing && !deleting && <p className={`${editable? "group-hover:hidden": ""} hidden text-neutral-300 italic font-mono min-[500px]:block`}>{formatDistanceToNow(new Date(message.createdAt), { addSuffix: true })}</p>}
                 {editable && 
                 (!deleting && !editing && options) ||
                 (!isLoading && !error && confirmation) ||
-                (isLoading && <p className='text-bold font-mono p-2 text-xl animate-pulse'>Loading...</p>) ||
+                (isLoading && <p className='text-bold font-mono p-2 text-xl animate-pulse -z-10'>Loading...</p>) ||
                 (error && <div className='error' onMouseLeave={() => {setError(null); cancelAction()}}>{error}</div>)}
             </div>
             <div className="m-1 x-sm:m-2 p-2 flex flex-col gap-1 bg-neutral-600 rounded-md border-2 border-black">

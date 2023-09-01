@@ -16,10 +16,13 @@ import Authentication from './Components/Authentication';
 import SignUp from './Pages/SignUp';
 import Login from './Pages/Login';
 import Home from './Pages/Home';
-import UserMessages from './Pages/UserMessages';
-import User from './Pages/User';
-import Protected404 from './Pages/Protected404';
-import Test from './Components/Test';
+import User from './Pages/Profile/User';
+import BoardDetails from './Pages/Profile/BoardDetails';
+import Boards from './Pages/Boards/Boards';
+import BoardsCreated from './Pages/Boards/BoardsCreated';
+import BoardView from './Components/BoardView';
+import BoardsJoined from './Pages/Boards/BoardsJoined';
+import MessagesSent from './Pages/Profile/MessagesSent';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,12 +35,18 @@ const router = createBrowserRouter(
       </Route>
 
       <Route element={<Authenticator />} >
-        <Route path='messages' element={<UserMessages />} />
-        <Route path='profile' element={<User />} />
-        <Route path='users/:id/messages' element={<UserMessages />} />
+        <Route path='boards' element={<Boards/>}>
+          <Route index element={<Navigate to='created' />} />
+          <Route path='created' element={<BoardsCreated />}/>
+          <Route path='joined' element={<BoardsJoined />}/>
+        </Route>
+        <Route path='boards/:boardID' element={<BoardView delay={15000}/>} /> 
+        <Route path='profile' element={<User />} >
+          <Route index element={<Navigate to='boards' />} />
+          <Route path='boards' element={<BoardDetails />} />
+          <Route path='messages' element={<MessagesSent />} />
+        </Route>
       </Route>
-
-      <Route path="*" element={<Navigate to='/' />} />
     </Route>
   )
 )

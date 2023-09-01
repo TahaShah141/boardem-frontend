@@ -22,7 +22,7 @@ export default {
         'fade-in': {
           'from': {
             transform: 'translateY(-10px)',
-            opacity: '0'
+            opacity: 0
           },
           
           '25%': {
@@ -30,11 +30,12 @@ export default {
           },
           
           '50%': {
-            opacity: '1',
+            opacity: 1,
             transform: 'translateY(-2px)',
           },
 
           'to': {
+            opacity: 1,
             transform: 'translateY(0)',
           }
         }

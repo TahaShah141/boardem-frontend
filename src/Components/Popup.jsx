@@ -1,4 +1,4 @@
-export default function Popup({children, closeMessage}) {
+export function Popup({children, closeMessage}) {
 
   return (
     <div onClick={closeMessage} className="flex justify-center bg-opacity-90 items-center fixed bg-black top-0 left-0 w-full max-h-screen h-full">

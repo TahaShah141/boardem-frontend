@@ -1,6 +1,4 @@
-import { useNavigate, Link } from 'react-router-dom'
-import { useState } from 'react'
-import { useAPI } from '../Hooks/useAPI'
+import { Link } from 'react-router-dom'
 import AuthForm from '../Components/AuthForm'
 
 export default function SignUp() {
