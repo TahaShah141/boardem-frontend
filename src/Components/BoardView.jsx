@@ -46,7 +46,7 @@ return (
                 <button onClick={() => setSending(true)} className="peer m-3 w-12 h-12 bg-red-500 border-4 border-black rounded-full order-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="currentColor"/></svg></button>
                 <p className="bg-red-500 py-2 px-4 font-mono rounded-lg border-4 border-black animate-popup hidden group-hover:inline-block peer-focus:inline-block">Add a New Message</p>
             </div>}
-            <div className={`text-white text-4xl text-center p-2 bg-primary rounded-xl font-mono border-4 border-black tracking-widest ${isLoading ? "animate-pulse": "animate-none"}`}>
+            <div className={`text-white text-xl x-sm:text-2xl sm:text-4xl text-center p-2 bg-primary rounded-xl font-mono border-4 border-black tracking-widest ${isLoading ? "animate-pulse": "animate-none"}`}>
                 {!error && 
                 (board && board.name) ||
                 (!board && <p>loading</p>)}
