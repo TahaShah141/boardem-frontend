@@ -4,6 +4,8 @@ import { useAPIContext } from "./useAPIContext"
 
 const baseUrl = import.meta.env.VITE_BASE_URL
 
+
+
 export const useAPI = () => {
     
     const [error, setError] = useState(null)
@@ -24,8 +26,8 @@ export const useAPI = () => {
         if (token) options.headers = {...options.headers, 'Authorization': `Bearer ${token}`} 
         if (body) options.body = JSON.stringify(body)
     
-        const res = await fetch(`${baseUrl}/${endpoint}`, options)
-        // const res = await fetch(`/${endpoint}`, options)
+        // const res = await fetch(`${baseUrl}/${endpoint}`, options)
+        const res = await fetch(`/${endpoint}`, options)
     
         return res
     }
