@@ -42,7 +42,7 @@ export default function BoardDetail({board}) {
             {editing &&
             <Popup closeMessage={cancelEdit}>
                 <form className="relative gap-4 p-3 bg-neutral-800 rounded-lg border-2 border-black flex flex-col items-center text-black w-72" onClick={(e) => e.stopPropagation()} onSubmit={(e) => {e.preventDefault(); confirmEdit();}}>
-                    {!error && <h3 className={`text-2xl font-semibold text-white border-b-2 ${isLoading ? 'animate-pulse -z-10': "animate-none"}`}>Edit Board</h3>}
+                    {!error && <h3 className={`text-2xl font-semibold text-white border-b-2 ${isLoading ? 'animate-pulse': "animate-none"}`}>Edit Board</h3>}
                     {error && <div className="error">{error}</div>}
                     <input type="text" className="text-input w-full" placeholder="Board Name" value={name} onChange={(e) => setName(e.target.value)}/>
                     <button type="button" onClick={() => setPublic(!isPublic)} className="flex bg-neutral-950 border-black border-4 w-full rounded-lg gap-1 items-center">
@@ -61,9 +61,6 @@ export default function BoardDetail({board}) {
                 </form>
             </Popup>
             }
-            {board.users.map(user => <BoardUser key={user._id} user={user} boardID={board._id}/>)}
-            {board.users.map(user => <BoardUser key={user._id} user={user} boardID={board._id}/>)}
-            {board.users.map(user => <BoardUser key={user._id} user={user} boardID={board._id}/>)}
             {board.users.map(user => <BoardUser key={user._id} user={user} boardID={board._id}/>)}
         </div>}
     </div>

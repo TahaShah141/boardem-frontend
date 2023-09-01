@@ -70,7 +70,7 @@ export const Message = ({ message, editable=false }) => {
                 {editable && 
                 (!deleting && !editing && options) ||
                 (!isLoading && !error && confirmation) ||
-                (isLoading && <p className='text-bold font-mono p-2 text-xl animate-pulse -z-10'>Loading...</p>) ||
+                (isLoading && <p className='text-bold font-mono p-2 text-xl animate-pulse'>Loading...</p>) ||
                 (error && <div className='error' onMouseLeave={() => {setError(null); cancelAction()}}>{error}</div>)}
             </div>
             <div className="m-1 x-sm:m-2 p-2 flex flex-col gap-1 bg-neutral-600 rounded-md border-2 border-black">

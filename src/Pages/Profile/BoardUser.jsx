@@ -16,7 +16,7 @@ export default function BoardUser({ boardID, user }) {
 
     return (
         <div className="p-3 bg-neutral-950 bg-opacity-20 rounded-lg border-2 border-black flex justify-between items-center">
-            {!error && <div className={`font-bold tracking-wider p-1 ${isLoading ? 'animate-pulse -z-10': 'animate-none'}`}>{user.username}</div>}
+            {!error && <div className={`font-bold tracking-wider p-1 ${isLoading ? 'animate-pulse': 'animate-none'}`}>{user.username}</div>}
             {error && <div className="error">{error}</div>}
             <div className="flex gap-1 x-sm:gap-3">
                 <button className="x-sm:block font-mono border border-white py-1 px-2 text-sm rounded-md bg-neutral-700 hover:scale-105 hover:font-bold hover:border-black hover:border-2 hover:bg-red-500 hidden" disabled={isLoading} onClick={() => updateUser(!user.isAuthor)}>{user.isAuthor ? "Author":"Viewer"}</button>

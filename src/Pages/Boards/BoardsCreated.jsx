@@ -44,7 +44,7 @@ export default function BoardsCreated() {
             {adding && 
             <Popup closeMessage={cancelAddition}>
                 <form className="gap-4 p-3 bg-neutral-800 rounded-lg border-2 border-black flex flex-col items-center text-black w-72" onSubmit={(e) => {e.preventDefault(); confirmAddition();}}>
-                    {!addError && <h3 className={`text-2xl font-semibold text-white border-b-2 ${isLoading ? 'animate-pulse -z-10': "animate-none"}`}>Add Board</h3>}
+                    {!addError && <h3 className={`text-2xl font-semibold text-white border-b-2 ${isLoading ? 'animate-pulse': "animate-none"}`}>Add Board</h3>}
                     {addError && <div className="error">{addError}</div>}
                     <input type="text" className="text-input w-full" placeholder="Board Name" value={name} onChange={(e) => setName(e.target.value)}/>
                     <button type="button" onClick={() => setPublic(!isPublic)} className="flex bg-neutral-950 border-black border-4 w-full rounded-lg gap-1 items-center">
