@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import AuthForm from './AuthForm'
+import { Popup } from './Popup'
 
 export default function ChangeCredentials({ closeMessage }) {
 
@@ -20,8 +21,8 @@ export default function ChangeCredentials({ closeMessage }) {
     }
 
     return (
-        <div onClick={closeMessage} className="flex justify-center bg-opacity-90 items-center fixed bg-black top-0 left-0 w-full max-h-screen h-full">
+        <Popup closeMessage={closeMessage}>
             <AuthForm type={'change'} buttonText={buttonText} onSuccess={success} header={header} />
-        </div>
+        </Popup>
   )
 }

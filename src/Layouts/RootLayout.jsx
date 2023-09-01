@@ -13,7 +13,7 @@ export default function RootLayout() {
   return (
     <>
     <header className="sticky top-0">
-      <nav>
+      <nav className="z-50">
           <Navbar isOpen={isOpen} setOpen={setOpen}/>
       </nav>
     </header>

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useAPI } from '../Hooks/useAPI'
 
-export default function NewMessage({onSuccess}) {
+export default function NewMessage({onSuccess, board}) {
 
     const { newMessage, isLoading, error } = useAPI()
 
@@ -12,8 +12,7 @@ export default function NewMessage({onSuccess}) {
         e.preventDefault()
         setTitle("")
         setContent("")
-
-        const messageSent = await newMessage(title, content)
+        const messageSent = board ? await newMessage(title, content, board._id): await newMessage(title, content)
         if (messageSent) onSuccess()
     }
 
