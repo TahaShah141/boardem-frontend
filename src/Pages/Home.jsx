@@ -19,5 +19,5 @@ export default function Home() {
         }
       }, [])
     
-    return (<BoardView delay={20000}/>)
+    return (<BoardView delay={10000}/>)
 }
