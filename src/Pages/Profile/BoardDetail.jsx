@@ -52,7 +52,7 @@ export default function BoardDetail({board}) {
 
                     {!isPublic && <Password placeholder={"Board Password"} value={password} setValue={setPassword} styling={"text-input w-full"} name="password" containerStyling="w-full"/> }
                     <div className="flex gap-4 w-full text-white">
-                        <button className="flex-1 bg-violet-500 p-2 rounded-lg text-xl font-bold font-mono border-4 border-black" onClick={cancelEdit}>Cancel</button>
+                        <button className="flex-1 bg-red-500 p-2 rounded-lg text-xl font-bold font-mono border-4 border-black" onClick={cancelEdit}>Cancel</button>
                         <button className="flex-1 bg-green-600 p-2 rounded-lg text-xl font-bold font-mono border-4 border-black" type="submit">Confirm</button>
                     </div>
                     <button onClick={confirmDelete} className='absolute top-0 right-0 m-4 w-7 h-7 p-1 x-sm:w-9 x-sm:h-9 sm:h-11 sm:w-11 sm:p-2 rounded-full bg-black bg-opacity-10 hover:bg-opacity-25 hover:scale-110 focus:bg-opacity-25 focus:scale-110 text-white' type="button">

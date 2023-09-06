@@ -54,7 +54,7 @@ export default function BoardsCreated() {
 
                     {!isPublic && <Password placeholder={"Board Password"} value={password} setValue={setPassword} styling={"text-input w-full"} name="password" containerStyling="w-full"/> }
                     <div className="flex gap-4 w-full text-white">
-                        <button className="flex-1 bg-violet-500 p-2 rounded-lg text-xl font-bold font-mono border-4 border-black" onClick={cancelAddition}>Cancel</button>
+                        <button className="flex-1 bg-red-500 p-2 rounded-lg text-xl font-bold font-mono border-4 border-black" onClick={cancelAddition}>Cancel</button>
                         <button className="flex-1 bg-green-600 p-2 rounded-lg text-xl font-bold font-mono border-4 border-black" type="submit" disabled={isAdding}>Confirm</button>
                     </div>
                 </form>

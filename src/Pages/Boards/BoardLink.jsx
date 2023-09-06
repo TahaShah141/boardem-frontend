@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAPI } from "../../Hooks/useAPI";
-import { Popup } from "../../Components/Popup";
+import Password from "../../Components/Password";
 
 export default function BoardLink({board, allowed=true}) {
 
@@ -10,6 +10,7 @@ export default function BoardLink({board, allowed=true}) {
     const navigate = useNavigate()
 
     const [password, setPassword] = useState("")
+    const [logging, setLogging] = useState(false)
 
     const login = async () => {
         if (isLoading) return
@@ -18,7 +19,7 @@ export default function BoardLink({board, allowed=true}) {
     } 
 
     return (
-    <div className="w-full">
+    <div onClick={() => setLogging(true)} className="w-full">
         {allowed && 
         <Link to={`/boards/${board._id}`} className="flex flex-col">
                 <p className={`text-white text-xl text-center py-2 bg-neutral-800 rounded-xl font-mono border-4 border-black tracking-widest`}>{board.name}</p>
@@ -27,7 +28,7 @@ export default function BoardLink({board, allowed=true}) {
 
         {!allowed && 
         <div  className="inline-flex flex-col w-full">
-            {!true && 
+            {!logging && 
             <>
             <p className={`text-white text-xl text-center py-2 bg-neutral-800 rounded-xl font-mono border-4 border-black tracking-widest w-full`}>{board.name}</p>
             <div className="flex self-center justify-center bg-neutral-950 border-black border gap-1 w-48 rounded-b-lg">
@@ -38,9 +39,9 @@ export default function BoardLink({board, allowed=true}) {
             </div>
             </>}
 
-            {true && 
+            {logging && 
             <>
-            <input type="text" placeholder="Password" className="text-input w-full" value={password} onChange={(e) => setPassword(e.target.value)}/>
+            <Password value={password} setValue={setPassword} placeholder={"Password"} styling={'text-input w-full'} name="password"/>
             <button onClick={login} type="button" className="flex self-center justify-center bg-neutral-950 border-black border gap-1 w-48 rounded-b-lg">Join Board</button>
             </>}
         </div>}

@@ -9,7 +9,7 @@ export const apiReducer = (state, action) => {
         case 'NEW_MESSAGE':
             return {...state, messages: [action.payload, ...(state.messages)]}
         case 'NEW_MESSAGES':
-            return {...state, messages: [...action.payload, ...(state.messages)]}
+            return {...state, messages: [...(action.payload.filter(msg => msg.board_id === state.board._id)), ...(state.messages)]}
         case 'DELETE_MESSAGE':
             return {...state, messagesSent: state.messagesSent.map(board => {
                 if (board._id === action.payload.board_id) {
