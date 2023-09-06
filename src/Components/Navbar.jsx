@@ -8,7 +8,7 @@ export default function Navbar({isOpen, setOpen}) {
   return (
     <>
     <div className="hidden justify-between items-center p-7 bg-primary text-white md:px-10 sm:flex border-b-2 border-black">
-        <NavLink to="/" className="text-3xl font-bold md:text-5xl">Board<span className="text-red-500 inline-block -rotate-12 translate-x-1 -translate-y-1">us</span></NavLink>
+        <NavLink to="/" className="text-3xl font-bold md:text-5xl">Board<span className="text-violet-500 inline-block -rotate-12 translate-x-1 -translate-y-1">us</span></NavLink>
         {user && (<div className="flex gap-4 text-lg md:gap-9 md:text-xl items-center">
         <NavLink className="nav-link" to="/">Home</NavLink>
         <NavLink className="nav-link" to="/boards">Boards</NavLink>
@@ -22,7 +22,7 @@ export default function Navbar({isOpen, setOpen}) {
     </div>
 
     <div className="relative flex justify-between items-center px-7 py-5 bg-primary text-white md:px-10 sm:hidden border-b-2 border-black z-0">
-        <NavLink onClick={() => setOpen(false)} to='/' className="text-3xl font-bold md:text-5xl">Board<span className="text-red-500 inline-block -rotate-12 translate-x-1 -translate-y-1">us</span></NavLink>
+        <NavLink onClick={() => setOpen(false)} to='/' className="text-3xl font-bold md:text-5xl">Board<span className="text-violet-500 inline-block -rotate-12 translate-x-1 -translate-y-1">us</span></NavLink>
         <button onClick={() => setOpen(!isOpen)}className="text-white w-10 h-10">
           {isOpen ?
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>close</title><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" fill="currentColor" /></svg>:

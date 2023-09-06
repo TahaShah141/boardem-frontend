@@ -39,8 +39,8 @@ export default function BoardsCreated() {
 
     return (
         <div className="flex gap-3 text-white font-mono flex-col justify-between w-full">
-            <button onClick={() => setAdding(true)} className="font-mono border-2 border-white py-2 px-4 text-lg rounded-md bg-neutral-700 hover:font-bold hover:border-black hover:border-2 hover:bg-red-500">Add new Board</button>
-            {!isLoading && boardsOwned.length === 0 && <p className={`text-red-500 text-xl text-center py-2 bg-neutral-800 rounded-xl font-mono border-4 border-black tracking-widest w-full`}>NO BOARDS MADE</p>}
+            <button onClick={() => setAdding(true)} className="font-mono border-2 border-white py-2 px-4 text-lg rounded-md bg-neutral-700 hover:font-bold hover:border-black hover:border-2 hover:bg-violet-500">Add new Board</button>
+            {!isLoading && boardsOwned.length === 0 && <p className={`text-violet-500 text-xl text-center py-2 bg-neutral-800 rounded-xl font-mono border-4 border-black tracking-widest w-full`}>NO BOARDS MADE</p>}
             {adding && 
             <Popup closeMessage={cancelAddition}>
                 <form className="gap-4 p-3 bg-neutral-800 rounded-lg border-2 border-black flex flex-col items-center text-black w-72" onSubmit={(e) => {e.preventDefault(); confirmAddition();}}>
@@ -54,7 +54,7 @@ export default function BoardsCreated() {
 
                     {!isPublic && <Password placeholder={"Board Password"} value={password} setValue={setPassword} styling={"text-input w-full"} name="password" containerStyling="w-full"/> }
                     <div className="flex gap-4 w-full text-white">
-                        <button className="flex-1 bg-red-500 p-2 rounded-lg text-xl font-bold font-mono border-4 border-black" onClick={cancelAddition}>Cancel</button>
+                        <button className="flex-1 bg-violet-500 p-2 rounded-lg text-xl font-bold font-mono border-4 border-black" onClick={cancelAddition}>Cancel</button>
                         <button className="flex-1 bg-green-600 p-2 rounded-lg text-xl font-bold font-mono border-4 border-black" type="submit" disabled={isAdding}>Confirm</button>
                     </div>
                 </form>

@@ -43,7 +43,7 @@ export default function BoardsJoined() {
             </div>
             }
             <hr />
-            {!isLoading && boardsJoined.length === 0 && <p className={`text-red-500 text-xl text-center py-2 bg-neutral-800 rounded-xl font-mono border-4 border-black tracking-widest w-full`}>NO BOARDS JOINED</p>}
+            {!isLoading && boardsJoined.length === 0 && <p className={`text-violet-500 text-xl text-center py-2 bg-neutral-800 rounded-xl font-mono border-4 border-black tracking-widest w-full`}>NO BOARDS JOINED</p>}
             {error && <div className="error">{error}</div> }
             {isLoading && <p className={`text-white text-xl text-center py-2 bg-neutral-800 rounded-xl font-mono border-4 border-black tracking-widest w-full animate-pulse`}>Loading Boards</p>}
             {boardsJoined.map(board => <BoardLink key={board._id} board={board}/>)}  

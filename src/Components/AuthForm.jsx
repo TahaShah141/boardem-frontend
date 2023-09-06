@@ -18,7 +18,7 @@ export default function AuthForm({header, buttonText='Submit', type, onSuccess})
 
     return (
         <div onClick={(e) => e.stopPropagation()} className='flex flex-col items-center p-5 gap-5'>
-            <h2 className='font-semibold text-xl bg-primary py-3 px-5 text-white rounded-xl shadow shadow-red-400'>{header}</h2>
+            <h2 className='font-semibold text-xl bg-primary py-3 px-5 text-white rounded-xl shadow shadow-violet-400'>{header}</h2>
             <form className='auth-form' method="POST" onSubmit={handleSubmit} autoComplete='off'>
                 <input className='text-input w-64' type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder='Username'/>
                 <Password value={password} setValue={setPassword} placeholder={"Password"} styling={'text-input w-64'} name="password"/>
